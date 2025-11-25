@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parabéns Especial!</title>
+    <meta name="description" content="Um site especial para desejar parabéns para uma amiga muito querida">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'verde-claro': '#e8f5e8',
+                        'verde-medio': '#4caf50',
+                        'verde-escuro': '#2e7d32',
+                        'verde-menta': '#a5d6a7'
+                    },
+                    fontFamily: {
+                        'dancing': ['Dancing Script', 'cursive'],
+                        'poppins': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen bg-gradient-to-br from-verde-claro to-verde-menta">
+    <!-- Confetti Container -->
+    <div id="confetti-container" class="fixed inset-0 pointer-events-none z-50"></div>
+
+    <header class="bg-white/80 backdrop-blur-sm shadow-lg pt-6">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex justify-center items-center w-full">
+                <div class="text-2xl font-dancing font-bold text-verde-escuro text-center">
+                    <i class="fas fa-heart mr-2"></i>
+                    Parabéns!
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-4 text-center">
+                <div class="max-w-4xl mx-auto">
+                    <h1 class="text-5xl md:text-7xl font-dancing font-bold text-verde-escuro mb-6">
+                        Feliz Aniversário!
+                    </h1>
+                    <div class="bg-white/80 rounded-2xl p-8 shadow-xl mb-8">
+                        <p class="text-xl md:text-2xl text-gray-700 font-poppins mb-6">
+                            Para minha Irmã especial 💚
+                        </p>
+                        <button onclick="startCelebration()" class="bg-verde-medio hover:bg-verde-escuro text-white px-8 py-4 rounded-full font-poppins text-lg transition-all transform hover:scale-105 shadow-lg">
+                            <i class="fas fa-birthday-cake mr-2"></i>
+                            Celebrar!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mensagem Especial -->
+        <section id="mensagem" class="py-16 bg-white/50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-4xl font-dancing text-verde-escuro text-center mb-12">
+                        Uma Mensagem Especial Para Você
+                    </h2>
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-quote-left text-3xl text-verde-medio opacity-50"></i>
+                        </div>
+                        <p class="text-lg md:text-xl text-gray-700 font-poppins leading-relaxed mb-6 text-center">
+                           Não tenho palavras para expressar o quanto você é especial para mim.
+                        </p>
+                        <p class="text-lg md:text-xl text-gray-700 font-poppins leading-relaxed mb-6 text-center">
+                            Saiba que em minhas orações peço sempre por sua felicidade, saúde e sucesso em todos os aspectos da sua vida.
+                            Posso não estar presente todos os dias em sia vida, porem pode sempre contar comigo para o que der e vier.
+                        </p>
+                        <p class="text-lg md:text-xl text-verde-escuro font-poppins font-semibold text-center">
+                            Com todo carinho ! 💚
+                        </p>
+                        <div class="text-center mt-8">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Amizade -->
+        <section id="amizade" class="py-16 bg-white/50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-4xl font-dancing text-verde-escuro mb-8">
+                        Nossa Amizade
+                    </h2>
+                    <div class="bg-white rounded-2xl p-8 shadow-lg">
+                        <div class="flex justify-center mb-6">
+                        </div>
+                        <p class="text-lg text-gray-700 font-poppins mb-6">
+                            Que nossa amizade seja como uma árvore: que, com o passar do tempo, cresça cada vez mais e se torne mais forte e bela.
+                        </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <footer class="bg-verde-escuro text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <!-- Botões de compartilhamento removidos -->
+            <p class="font-poppins">
+                Feito com 💚 para uma amiga especial
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Data definitions
+        const birthdayDate = new Date();
+        birthdayDate.setDate(birthdayDate.getDate() + 1); // Amanhã como exemplo
+
+        // Navigation function
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        // Celebration function
+        function startCelebration() {
+            createConfetti();
+            playCelebrationSound();
+            
+            // Animate elements
+            const elements = document.querySelectorAll('button, .bg-white');
+            elements.forEach(element => {
+                element.style.animation = 'celebrate 0.5s ease-in-out';
+                setTimeout(() => {
+                    element.style.animation = '';
+                }, 500);
+            });
+        }
+
+        // Confetti function
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#4caf50', '#2e7d32', '#a5d6a7', '#81c784', '#66bb6a'];
+            
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'absolute w-3 h-3 rounded-full';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = '-10px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+                
+                container.appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }
+        }
+
+        // Celebration sound (simulated)
+        function playCelebrationSound() {
+            // Simulate celebration sound with browser capabilities
+            if ('vibrate' in navigator) {
+                navigator.vibrate([100, 50, 100]);
+            }
+        }
+
+        // Counter animation
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = Math.floor(target);
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 20);
+        }
+
+        // Initialize counters
+        function initializeCounters() {
+            setTimeout(() => {
+                animateCounter(document.getElementById('years'), 1);
+                animateCounter(document.getElementById('months'), 12);
+                animateCounter(document.getElementById('days'), 365);
+                animateCounter(document.getElementById('hours'), 8760);
+            }, 1000);
+        }
+
+        // Add CSS for animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                to {
+                    transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+            @keyframes celebrate {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCounters();
+        });
+    </script>
+</body>
+</html>
